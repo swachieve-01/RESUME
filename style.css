@@ -304,15 +304,18 @@ ul.skill-list li:hover .skill-fill {
 @media (max-width: 833px) {
 	.stage {
 		display: block;
+		max-width: 100vw;
 	}
 	.left {
 		padding: 20px 20px 0;
+		width: 100%;
 	}
 	.vertical-line {
 		display: none;
 	}
 	.right {
 		padding: 16px 18px;
+		width: 100%;
 	}
 	.right .name {
 		position: static;
@@ -321,15 +324,15 @@ ul.skill-list li:hover .skill-fill {
 		letter-spacing: 3px;
 	}
 	.mast {
-		margin: 0 0 28px;
+		margin: 0 -20 28px;
 		padding: 28px 20px 22px;
 	}
 	.section {
-		margin: 0;
+		margin: 0 -20px;
 		padding: 32px 20px;
 	}
 	.about {
-		padding-top: 70px;
+		padding-top: 0px;
 		min-height: 200px;
 	}
 	.about .arrow {
