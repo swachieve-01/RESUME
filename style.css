@@ -12,7 +12,7 @@ body {
 
 .stage {
 	max-width: 1280px;
-	width: 1280px;
+	width: 100%;
 	margin: 0 auto;
 	background: #1a1a1a;
 	display: grid;
@@ -36,8 +36,8 @@ body {
 	align-items: center;
 	justify-content: center;
 	writing-mode: vertical-lr;
-	font: 80px/1 "EB Garamond", serif;
-	letter-spacing: 4px;
+	font: 120px/1 "EB Garamond", serif;
+	letter-spacing: 8px;
 }
 
 .mast {
@@ -61,6 +61,10 @@ body {
 	justify-self: end;
 	font: 32px/1 "Dhurjati", sans-serif;
 	letter-spacing: 1px;
+	transition: color 0.3s ease;
+}
+.role:hover {
+	color: #aaa;
 }
 .contact {
 	grid-area: contact;
@@ -68,6 +72,22 @@ body {
 	text-align: right;
 	font: 14px/1.45 "Cutive", serif;
 	margin-top: 24px;
+}
+.contact a {
+	color: #fff;
+	text-decoration: none;
+	transition: color 0.3s ease;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+.contact a:hover {
+	color: #aaa;
+}
+.contact a svg {
+	width: 14px;
+	height: 14px;
+	fill: currentColor;
 }
 
 .section {
@@ -81,7 +101,7 @@ body {
 	margin-bottom: 16px;
 }
 .section-body {
-	font: 16px/1 "Do Hyeon", sans-serif;
+	font: 16px/1.6 "Do Hyeon", sans-serif;
 	max-width: 860px;
 }
 
@@ -100,7 +120,7 @@ body {
 	transition: transform 0.25s ease;
 }
 .about .arrow:hover {
-	transform: translateX(-50%) scale(1.5);
+	transform: translateX(-50%) scale(1.5) rotate(360deg);
 }
 .about .arrow path {
 	fill: #fff;
@@ -110,9 +130,15 @@ body {
 	top: 32px;
 	left: 60%;
 	transform: translateX(140px);
-	width: 140px;
-	height: 140px;
+	width: 180px;
+	height: 180px;
 	overflow: hidden;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	box-shadow: 0 0 0 2px transparent;
+}
+.about .profile:hover {
+	transform: translateX(140px) scale(1.05);
+	box-shadow: 0 0 0 2px #fff;
 }
 .about .profile img {
 	width: 100%;
@@ -167,12 +193,6 @@ ul.skill-list li {
 	align-items: center;
 	gap: 12px;
 }
-ul.interest-list li {
-	display: grid;
-	grid-template-columns: 180px 1fr;
-	align-items: center;
-	gap: 12px;
-}
 .skill-bar {
 	height: 6px;
 	background: #333;
@@ -186,14 +206,76 @@ ul.interest-list li {
 	width: 0;
 	transition: width 1s ease;
 }
+ul.skill-list li.skill-item .skill-fill {
+	animation: fillBar 1s ease forwards;
+}
+ul.skill-list li.skill-item:nth-child(1) .skill-fill {
+	animation-delay: 0.1s;
+}
+ul.skill-list li.skill-item:nth-child(2) .skill-fill {
+	animation-delay: 0.2s;
+}
+ul.skill-list li.skill-item:nth-child(3) .skill-fill {
+	animation-delay: 0.3s;
+}
+ul.skill-list li.skill-item:nth-child(4) .skill-fill {
+	animation-delay: 0.4s;
+}
+ul.skill-list li.skill-item:nth-child(5) .skill-fill {
+	animation-delay: 0.5s;
+}
+ul.skill-list li.skill-item:nth-child(6) .skill-fill {
+	animation-delay: 0.6s;
+}
+ul.skill-list li.skill-item:nth-child(7) .skill-fill {
+	animation-delay: 0.7s;
+}
+ul.skill-list li.skill-item:nth-child(8) .skill-fill {
+	animation-delay: 0.8s;
+}
+ul.skill-list li.skill-item:nth-child(9) .skill-fill {
+	animation-delay: 0.9s;
+}
+ul.skill-list li.skill-item:nth-child(10) .skill-fill {
+	animation-delay: 1s;
+}
+
+@keyframes fillBar {
+	to {
+		width: var(--skill-width);
+	}
+}
+
 ul.skill-list li:hover .skill-fill {
-	width: var(--skill-width);
+	background: #8b5cf6;
+}
+
+.interest-item {
+	position: relative;
+	cursor: pointer;
+	transition: color 0.3s ease;
+	padding: 4px 0;
+}
+.interest-item:hover {
+	color: #8b5cf6;
+}
+.interest-detail {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	font-size: 14px;
+	color: #aaa;
+	padding-left: 12px;
+	margin-top: 4px;
+}
+.interest-item:hover .interest-detail {
+	max-height: 100px;
+	transition: max-height 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (max-width: 1279px) {
 	.stage {
 		grid-template-columns: 1fr 2px 240px;
-		width: auto;
 	}
 	.left {
 		padding: 24px 28px 0;
@@ -208,11 +290,14 @@ ul.skill-list li:hover .skill-fill {
 	.about .profile {
 		top: 28px;
 		transform: translateX(120px);
-		width: 130px;
-		height: 130px;
+		width: 160px;
+		height: 160px;
+	}
+	.about .profile:hover {
+		transform: translateX(120px) scale(1.05);
 	}
 	.right .name {
-		font-size: 54px;
+		font-size: 80px;
 	}
 }
 
@@ -253,8 +338,11 @@ ul.skill-list li:hover .skill-fill {
 	.about .profile {
 		top: 20px;
 		transform: translateX(100px);
-		width: 150px;
-		height: 150px;
+		width: 180px;
+		height: 180px;
+	}
+	.about .profile:hover {
+		transform: translateX(100px) scale(1.05);
 	}
 	.skill-interest {
 		grid-template-columns: 1fr;
@@ -262,5 +350,15 @@ ul.skill-list li:hover .skill-fill {
 	}
 	.skill-interest::before {
 		display: none;
+	}
+	ul.skill-list li {
+		grid-template-columns: 140px 1fr;
+	}
+}
+
+@media (max-width: 637px) {
+	ul.skill-list li {
+		grid-template-columns: 1fr;
+		gap: 8px;
 	}
 }
