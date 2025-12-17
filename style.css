@@ -21,7 +21,7 @@ body {
 .left {
 	padding: 28px 28px 0;
 }
-.vline {
+.vertical-line {
 	background: #fff;
 }
 .right {
@@ -75,12 +75,12 @@ body {
 	padding: 32px 28px;
 	margin: 0 -28px;
 }
-.sh {
+.section-header {
 	font: 32px/1 "Dhurjati", sans-serif;
 	letter-spacing: 1px;
 	margin-bottom: 16px;
 }
-.body {
+.section-body {
 	font: 16px/1 "Do Hyeon", sans-serif;
 	max-width: 860px;
 }
@@ -121,13 +121,13 @@ body {
 	display: block;
 }
 
-.two {
+.skill-interest {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	column-gap: 54px;
 	position: relative;
 }
-.two::before {
+.skill-interest::before {
 	content: "";
 	position: absolute;
 	left: 50%;
@@ -140,21 +140,34 @@ body {
 	font: 32px/1 "Dhurjati", sans-serif;
 	margin-bottom: 12px;
 }
-ul.list {
+ul.skill-list {
 	list-style: none;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
 	font: 16px/1.5 "Do Hyeon", sans-serif;
 }
-ul.body {
+ul.interest-list {
 	list-style: none;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
 	font: 16px/1.5 "Do Hyeon", sans-serif;
 }
-ul.list li {
+ul.section-body {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	font: 16px/1.5 "Do Hyeon", sans-serif;
+}
+ul.skill-list li {
+	display: grid;
+	grid-template-columns: 180px 1fr;
+	align-items: center;
+	gap: 12px;
+}
+ul.interest-list li {
 	display: grid;
 	grid-template-columns: 180px 1fr;
 	align-items: center;
@@ -171,9 +184,9 @@ ul.list li {
 	background: #fff;
 	border-radius: 3px;
 	width: 0;
-	transition: width 0.6s ease;
+	transition: width 1s ease;
 }
-ul.list li:hover .skill-fill {
+ul.skill-list li:hover .skill-fill {
 	width: var(--skill-width);
 }
 
@@ -210,7 +223,7 @@ ul.list li:hover .skill-fill {
 	.left {
 		padding: 20px 20px 0;
 	}
-	.vline {
+	.vertical-line {
 		display: none;
 	}
 	.right {
@@ -243,11 +256,11 @@ ul.list li:hover .skill-fill {
 		width: 150px;
 		height: 150px;
 	}
-	.two {
+	.skill-interest {
 		grid-template-columns: 1fr;
 		row-gap: 24px;
 	}
-	.two::before {
+	.skill-interest::before {
 		display: none;
 	}
 }
